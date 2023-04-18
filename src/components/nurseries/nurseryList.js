@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getDistributorStock, getNurseries, getNurseryStock } from "../ApiManager.js"
 import { Nursery } from "./nursery.js"
+import "./nurseryList.css"
 
 export const NurseryList = () => {
 
@@ -38,10 +39,6 @@ export const NurseryList = () => {
         [] // When this array is empty, you are observing initial component state
     )
 
-   
-
-    console.log(nurseryStock)
-
     return <>
     <h2>List of Nurseries</h2>
     <article className="nurseries">
@@ -75,11 +72,9 @@ export const NurseryList = () => {
                 //GET RID OF UNDEFINED RETURNS
             }).filter(x => {return x !== undefined})
 
-            console.log(distributorsArray)
-
             //BUILD HTML FOR EACH NURSERY IN NURSERIES   
-            return <Nursery id={nursery.id} 
-                            name={nursery.name} 
+            return <Nursery id={nursery.id}
+                            name={nursery.name}
                             flowers={flowersArray}
                             distributors={distributorsArray}
             />
