@@ -1,4 +1,5 @@
 import { Outlet, Route, Routes } from "react-router-dom"
+import { NurseryList } from "../nurseries/nurseryList.js"
 
 export const ApplicationViews = () => {
 	return (
@@ -6,13 +7,13 @@ export const ApplicationViews = () => {
             <Route path="/" element={
                 <>
                     <h1 className="title--name">Thorns and Roses</h1>
-                    <div>Your one stop shot for all your flower needs</div>
-
+                    <div>THE one-stop-shop to meet all your flower needs</div>
+                    
                     <Outlet/>
                 </>
             }>
 
-                <Route path="/nurseries" element={ <></> } />
+                <Route path="/nurseries" element={ <NurseryList/> } />
                 <Route path="/distributors" element={ <></> } />
                 <Route path="/retailers" element={ <></> } />
 
