@@ -17,3 +17,8 @@ export const getDistributors = () => {
     return fetch('http://localhost:8088/distributors?_embed=distributorStock&_embed=retailerStock')
     .then(response => response.json())
 }
+
+export const getRetailerStock = () => {
+    return fetch('http://localhost:8088/retailerStock?_expand=distributor&_expand=retailer')
+    .then(response => response.json())
+}
