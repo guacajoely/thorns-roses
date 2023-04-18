@@ -15,4 +15,19 @@ code {
     monospace;
 }
 
+.header{
+  display: flex;
+  align-items: center;
+}
+
+.title--name{
+  margin: 0;
+}
+
+.title--icon{
+  width: 90px;
+}
+
+
+
 

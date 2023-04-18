@@ -6,9 +6,14 @@ export const ApplicationViews = () => {
         <Routes>
             <Route path="/" element={
                 <>
-                    <h1 className="title--name">Thorns and Roses</h1>
-                    <div>THE one-stop-shop to meet all your flower needs</div>
-                    
+                <header className="header">
+                        <img className="title--icon" src={require("../../images/icon.png")} alt="rose"/>
+                        <div>
+                            <h1 className="title--name">Thorns and Roses</h1>
+                            <div>THE one-stop-shop to meet all your flower needs</div>
+                        </div>
+                </header>
+
                     <Outlet/>
                 </>
             }>
