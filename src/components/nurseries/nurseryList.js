@@ -61,7 +61,7 @@ export const NurseryList = () => {
             }).filter(x => {return x !== undefined})
 
             //BUILD HTML FOR EACH NURSERY IN NURSERIES   
-            return <Nursery id={nursery.id}
+            return <Nursery key={nursery.id}
                             name={nursery.name}
                             flowers={flowersArray}
                             distributors={distributorsArray}
