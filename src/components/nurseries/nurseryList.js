@@ -9,35 +9,23 @@ export const NurseryList = () => {
     const [nurseryStock, setNurseryStock] = useState([])
     const [distributorStock, setDistributorStock] = useState([])
 
-    useEffect(
-        () => {
-            getNurseries()
+    useEffect(() => {getNurseries()
             .then((responseArray) => {
                 setNurseries(responseArray)
             })
-        },
-        [] // When this array is empty, you are observing initial component state
-    )
+        }, [] )
 
-    useEffect(
-        () => {
-            getNurseryStock()
+    useEffect(() => {getNurseryStock()
             .then((responseArray) => {
                 setNurseryStock(responseArray)
             })
-        },
-        [] // When this array is empty, you are observing initial component state
-    )
+        }, [] )
 
-    useEffect(
-        () => {
-            getDistributorStock()
+    useEffect(() => {getDistributorStock()
             .then((responseArray) => {
                 setDistributorStock(responseArray)
             })
-        },
-        [] // When this array is empty, you are observing initial component state
-    )
+        }, [] )
 
     return <>
     <h2>List of Nurseries</h2>
