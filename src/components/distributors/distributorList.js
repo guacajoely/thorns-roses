@@ -35,7 +35,7 @@ export const DistributorList = () => {
         }, [] )
 
 
-    return <>
+    return <div className="distributors__container">
     <h2>List of Distributors</h2>
     <article className="distributors">
 
@@ -100,5 +100,5 @@ export const DistributorList = () => {
     }
 
     </article>
-    </>
+    </div>
 }

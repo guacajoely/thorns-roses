@@ -1,3 +1,7 @@
+.distributors__container{
+    margin-left: 20px;
+}
+
 .distributor > header{
     font-size: larger;
     font-weight: bold;

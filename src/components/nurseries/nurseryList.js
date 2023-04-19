@@ -71,5 +71,5 @@ export const NurseryList = () => {
     }
 
     </article>
-    </>
+    </div>
 }

@@ -1,3 +1,7 @@
+.retailers__container {
+    margin-left: 20px;
+}
+
 .retailer > header{
     font-size: larger;
     font-weight: bold;

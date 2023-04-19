@@ -14,7 +14,7 @@ export const RetailerList = () => {
         }, [] )
 
 
-    return <>
+    return <div className="retailers__container">
     <h2>List of Retailers</h2>
     <article className="retailers">
 
@@ -34,5 +34,5 @@ export const RetailerList = () => {
     }
 
     </article>
-    </>
+    </div>
 }
