@@ -72,8 +72,6 @@ export const RetailerList = () => {
             //flatten the array before passing it on
             const flattenedNurseArray = [].concat(...nurseryArray);
 
-            console.log(flattenedNurseArray)
-
             const flowersArray = flattenedNurseArray.map(nursery => {
 
             //LOOP THROUGH NURSERYSTOCK TO GRAB FLOWERS
@@ -95,7 +93,6 @@ export const RetailerList = () => {
 
             //flatten the array before passing it on
             const flattenedFlowerArray = [].concat(...flowersArray);
-            console.log(flattenedFlowerArray)
             
 
             //BUILD HTML FOR EACH RETAILER IN RETAILERS   
