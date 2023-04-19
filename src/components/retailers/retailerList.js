@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import "./retailerList.css"
-import { getRetailerStock, getRetailers } from "../ApiManager.js"
+import { getDistributorStock, getRetailerStock, getRetailers } from "../ApiManager.js"
 import { Retailer } from "./retailer.js"
 
 export const RetailerList = () => {
 
     const [retailers, setRetailers] = useState([])
     const [retailerStock, setRetailerStock] = useState([])
+    const [distributorStock, setDistributorStock] = useState([])
 
     useEffect(() => {getRetailers()
             .then((responseArray) => {
@@ -17,6 +18,12 @@ export const RetailerList = () => {
         useEffect(() => {getRetailerStock()
             .then((responseArray) => {
                 setRetailerStock(responseArray)
+            })
+        }, [] )
+
+        useEffect(() => {getDistributorStock()
+            .then((responseArray) => {
+                setDistributorStock(responseArray)
             })
         }, [] )
 
@@ -35,11 +42,31 @@ export const RetailerList = () => {
             if(object.retailerId === retailer.id){
 
                 //RETURN THE NAME OF EACH distributor
-                return object.distributor.name
+                return object.distributor
                 }
 
             //GET RID OF UNDEFINED RETURNS
             }).filter(x => {return x !== undefined})
+
+
+            const nurseryArray = distributorsArray.map(distributor => {
+                //LOOP THROUGH DISTRIBUTORSTOCK TO GRAB NAMES OF ALL THE NURSERIES USING THAT DISTRIBUTOR
+                const newNurseryArray = distributorStock.map(object => {
+                    //ONLY GRAB DISTRIBUTORS THAT MATCH NURSERY ID
+                    if(object.distributorId === distributor.id){
+                        //RETURN THE NAME OF EACH DISTRIBUTOR
+                        return object.nursery
+                    }
+                    //GET RID OF UNDEFINED RETURNS
+                }).filter(x => {return x !== undefined})
+
+            return newNurseryArray})
+
+            //flatten the array before passing it on
+            const flattenedNurseArray = [].concat(...nurseryArray);
+
+            console.log(flattenedNurseArray)
+            
 
             //BUILD HTML FOR EACH RETAILER IN RETAILERS   
             return <Retailer key={retailer.id}
@@ -47,7 +74,7 @@ export const RetailerList = () => {
                             address={retailer.address}
                             // flowers={flowersArray}
                             distributors={distributorsArray}
-                            // nurseries={nurseriesArray}
+                            nurseries={flattenedNurseArray}
             />
 
                 })
