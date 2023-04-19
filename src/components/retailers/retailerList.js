@@ -85,7 +85,7 @@ export const RetailerList = () => {
                         id: object.id,
                         color : object.flower.color,
                         species: object.flower.species,
-                        price : object.price
+                        price : object.price * retailer.markupPer
                     }
                 }
                 //GET RID OF UNDEFINED RETURNS
