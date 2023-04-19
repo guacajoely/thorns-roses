@@ -20,3 +20,7 @@ ul, li{
 .flower, .retailer--distributor, .retailer--nursery{
     margin-left: 80px;
 }
+
+.retailer {
+    margin-bottom: 15px;
+}

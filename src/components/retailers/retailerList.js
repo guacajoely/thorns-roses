@@ -25,6 +25,7 @@ export const RetailerList = () => {
             //BUILD HTML FOR EACH RETAILER IN RETAILERS   
             return <Retailer id={retailer.id}
                             name={retailer.name}
+                            address={retailer.address}
                             // flowers={flowersArray}
                             // distributors={distributorsArray}
                             // nurseries={nurseriesArray}
