@@ -27,7 +27,7 @@ export const NurseryList = () => {
             })
         }, [] )
 
-    return <>
+    return <div className="nurseries__container">
     <h2>List of Nurseries</h2>
     <article className="nurseries">
 
