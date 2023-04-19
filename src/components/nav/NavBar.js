@@ -8,7 +8,7 @@ export const NavBar = () => {
     return (
         <ul className="navbar">
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/">Home</Link>
+                <Link className="navbar__link" to="/home">Home</Link>
             </li>
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/nurseries">Nurseries</Link>
@@ -18,6 +18,10 @@ export const NavBar = () => {
             </li>
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/retailers">Retailers</Link>
+            </li>
+
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/cart">My Cart</Link>
             </li>
 
 
