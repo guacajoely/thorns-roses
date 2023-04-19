@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getDistributors, getRetailerStock } from "../ApiManager.js"
+import { getDistributorStock, getDistributors, getNurseryStock, getRetailerStock } from "../ApiManager.js"
 import { Distributor } from "./distributor.js"
 import "./distributorList.css"
 
@@ -7,26 +7,32 @@ export const DistributorList = () => {
 
     const [distributors, setDistributors] = useState([])
     const [retailerStock, setRetailerStock] = useState([])
+    const [nurseryStock, setNurseryStock] = useState([])
+    const [distributorStock, setDistributorStock] = useState([])
 
-    useEffect(
-        () => {
-            getDistributors()
+    useEffect(() => {getDistributors()
             .then((responseArray) => {
                 setDistributors(responseArray)
             })
-        },
-        [] // When this array is empty, you are observing initial component state
-    )
+        }, [] )
 
-    useEffect(
-        () => {
-            getRetailerStock()
+    useEffect(() => {getRetailerStock()
             .then((responseArray) => {
                 setRetailerStock(responseArray)
             })
-        },
-        [] // When this array is empty, you are observing initial component state
-    )
+        }, [] )
+
+    useEffect(() => {getNurseryStock()
+            .then((responseArray) => {
+                setNurseryStock(responseArray)
+            })
+        }, [] )
+
+    useEffect(() => {getDistributorStock()
+            .then((responseArray) => {
+                setDistributorStock(responseArray)
+            })
+        }, [] )
 
 
     return <>
@@ -37,7 +43,43 @@ export const DistributorList = () => {
         
         distributors.map(distributor => {
 
-            //LOOP THROUGH DISTRIBUTORSTOCK TO GRAB NAMES OF ALL DISTRIBUTORS USING THAT NURSERY
+            //LOOP THROUGH DISTRIBUTORSTOCK TO GRAB THE MATCHING NURSERIES
+            const matchingNurseryArray = distributorStock.map(object => {
+                //ONLY GRAB NURSERIESTHAT MATCH DISTRIBUTOR ID
+                if(object.distributorId === distributor.id){
+                    //MAKE A NEW "FLOWER" OBJECT THAT WE'RE GOING TO PASS TO NURSERY.JS
+                    return {
+                        id: object.id,
+                    }
+                }
+                //GET RID OF UNDEFINED RETURNS
+            }).filter(x => {return x !== undefined})
+
+            const flowersArray = matchingNurseryArray.map(nursery => {
+
+                //LOOP THROUGH NURSERYSTOCK TO GRAB FLOWERS
+                 const newFlowerArray = nurseryStock.map(object => {
+                    //ONLY GRAB FLOWERS THAT MATCH NURSERY ID
+                    if(object.nurseryId === nursery.id){
+                        //MAKE A NEW "FLOWER" OBJECT THAT WE'RE GOING TO PASS TO NURSERY.JS
+                        return {
+                            id: object.id,
+                            color : object.flower.color,
+                            species: object.flower.species,
+                            price : object.price * distributor.markupPer
+                        }
+                    }
+                    //GET RID OF UNDEFINED RETURNS
+                }).filter(x => {return x !== undefined})
+
+                return newFlowerArray
+            })
+
+            //flatten the array before passing it into the function that creates html
+            const flattenedFlowerArray = [].concat(...flowersArray);
+
+
+            //LOOP THROUGH RETAILERSTOCK TO GRAB NAMES OF ALL DISTRIBUTORS USING THAT NURSERY
             const retailersArray = retailerStock.map(object => {
             //ONLY GRAB retailerS THAT MATCH DISTRIBUTOR ID
             if(object.distributorId === distributor.id){
@@ -47,10 +89,10 @@ export const DistributorList = () => {
             //GET RID OF UNDEFINED RETURNS
             }).filter(x => {return x !== undefined})
 
-            //BUILD HTML FOR EACH distributor IN distributorS   
+            //BUILD HTML FOR EACH distributor IN distributors   
             return <Distributor id={distributor.id}
                             name={distributor.name}
-                            // flowers={flowersArray}
+                            flowers={flattenedFlowerArray}
                             retailers={retailersArray}
             />
 

@@ -7,9 +7,9 @@ export const Nursery = ({ id, name, flowers, distributors }) => {
                     return <li className="flower" key={flower.id}> {flower.color} {flower.species}s ${flower.price.toFixed(2)}</li>
                 })}
 
-                <ul className="distributor-list">Distributors</ul>
+                <ul className="nursery--distributors">Distributors</ul>
                 {distributors.map(distributor => {
-                    return <li className="distributor" key={distributors.indexOf(distributor)}> {distributor}</li>
+                    return <li className="nursery--distributor" key={distributors.indexOf(distributor)}> {distributor}</li>
                 })}
             </section>
 
