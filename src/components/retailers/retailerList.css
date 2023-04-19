@@ -1,0 +1,18 @@
+.retailer > header{
+    font-size: larger;
+    font-weight: bold;
+}
+
+ul, li{
+    list-style-type: none;
+    margin: 10px;
+}
+
+.flower-list, .retailer--distributors, .retailer--nurseries{
+    font-size: large;
+    text-decoration: underline;
+}
+
+.flower, .retailer--distributor, .retailer--nursery{
+    margin-left: 80px;
+}

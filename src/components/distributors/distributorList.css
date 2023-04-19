@@ -8,11 +8,11 @@ ul, li{
     margin: 10px;
 }
 
-.flower-list, .retailer-list{
+.flower-list, .distributor--retailers{
     font-size: large;
     text-decoration: underline;
 }
 
-.flower, .retailer{
+.flower, .distributor--retailer{
     margin-left: 80px;
 }

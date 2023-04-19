@@ -90,7 +90,7 @@ export const DistributorList = () => {
             }).filter(x => {return x !== undefined})
 
             //BUILD HTML FOR EACH distributor IN distributors   
-            return <Distributor id={distributor.id}
+            return <Distributor key={distributor.id}
                             name={distributor.name}
                             flowers={flattenedFlowerArray}
                             retailers={retailersArray}
