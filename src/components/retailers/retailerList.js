@@ -80,7 +80,7 @@ export const RetailerList = () => {
                 if(object.nurseryId === nursery.id){
                     //MAKE A NEW "FLOWER" OBJECT THAT WE'RE GOING TO RETURN
                     return {
-                        id: object.id,
+                        id: object.flower.id,
                         color : object.flower.color,
                         species: object.flower.species,
                         price : object.price * retailer.markupPer
@@ -93,6 +93,8 @@ export const RetailerList = () => {
 
             //flatten the array before passing it on
             const flattenedFlowerArray = [].concat(...flowersArray);
+
+            console.log(flattenedFlowerArray)
             
 
             //BUILD HTML FOR EACH RETAILER IN RETAILERS   
@@ -102,6 +104,7 @@ export const RetailerList = () => {
                             flowers={flattenedFlowerArray}
                             distributors={distributorsArray}
                             nurseries={flattenedNurseryArray}
+                            retailerId={retailer.id}
             />
 
                 })

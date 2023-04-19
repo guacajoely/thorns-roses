@@ -27,3 +27,24 @@ export const getRetailerStock = () => {
     return fetch('http://localhost:8088/retailerStock?_expand=distributor&_expand=retailer')
     .then(response => response.json())
 }
+
+export const getCustomers = () => {
+    return fetch('http://localhost:8088/customers')
+    .then(response => response.json())
+}
+
+export const createPurchase = (customerId, retailerId, flowerId) => {
+    return fetch(`http://localhost:8088/purchases`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            customerId: customerId,
+            retailerId: retailerId,
+            flowerId: flowerId
+        })
+
+    })
+    .then(response => response.json())
+}
