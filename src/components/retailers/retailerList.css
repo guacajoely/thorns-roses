@@ -12,12 +12,12 @@ ul, li{
     margin: 10px;
 }
 
-.flower-list, .retailer--distributors, .retailer--nurseries{
+.retailer--flowers, .retailer--distributors, .retailer--nurseries{
     font-size: large;
     text-decoration: underline;
 }
 
-.flower, .retailer--distributor, .retailer--nursery{
+.retailer--flower, .retailer--distributor, .retailer--nursery{
     margin-left: 80px;
 }
 
