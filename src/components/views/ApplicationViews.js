@@ -1,6 +1,7 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { NurseryList } from "../nurseries/nurseryList.js"
 import { DistributorList } from "../distributors/distributorList.js"
+import { RetailerList } from "../retailers/retailerList.js"
 
 export const ApplicationViews = () => {
 	return (
@@ -19,9 +20,9 @@ export const ApplicationViews = () => {
                 </>
             }>
 
-                <Route path="/nurseries" element={ <NurseryList/> } />
+                <Route path="/nurseries" element={ <NurseryList /> } />
                 <Route path="/distributors" element={ <DistributorList /> } />
-                <Route path="/retailers" element={ <></> } />
+                <Route path="/retailers" element={ <RetailerList /> } />
 
             </Route>
         </Routes>
