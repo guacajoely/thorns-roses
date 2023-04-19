@@ -70,9 +70,9 @@ export const RetailerList = () => {
             return newNurseryArray})
 
             //flatten the array before passing it on
-            const flattenedNurseArray = [].concat(...nurseryArray);
+            const flattenedNurseryArray = [].concat(...nurseryArray);
 
-            const flowersArray = flattenedNurseArray.map(nursery => {
+            const flowersArray = flattenedNurseryArray.map(nursery => {
 
             //LOOP THROUGH NURSERYSTOCK TO GRAB FLOWERS
             const newFlowersArray = nurseryStock.map(object => {
@@ -101,7 +101,7 @@ export const RetailerList = () => {
                             address={retailer.address}
                             flowers={flattenedFlowerArray}
                             distributors={distributorsArray}
-                            nurseries={flattenedNurseArray}
+                            nurseries={flattenedNurseryArray}
             />
 
                 })
