@@ -94,9 +94,6 @@ export const RetailerList = () => {
             //flatten the array before passing it on
             const flattenedFlowerArray = [].concat(...flowersArray);
 
-            console.log(flattenedFlowerArray)
-            
-
             //BUILD HTML FOR EACH RETAILER IN RETAILERS   
             return <Retailer key={retailer.id}
                             name={retailer.name}

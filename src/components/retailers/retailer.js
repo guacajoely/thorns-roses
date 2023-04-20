@@ -17,7 +17,6 @@ export const Retailer = ({ name, address, distributors, nurseries, flowers, reta
 
     //find the customer object for the current user
     const userCustomer = customers.find(customer => customer.id === userObject.id)
-    console.log(userCustomer)
 
     return <section className="retailer">
                 <header>{name}</header>
@@ -31,7 +30,7 @@ export const Retailer = ({ name, address, distributors, nurseries, flowers, reta
                         ${flower.price.toFixed(2)}
                         <button className="purchase--button" onClick={() => {
                     
-                            createPurchase(userCustomer.id, retailerId, flower.id)
+                            createPurchase(userCustomer.id, retailerId, flower.id, flower.price)
 
                         }}>Purchase</button>
                     </li>

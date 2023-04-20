@@ -7,9 +7,9 @@ export const HomePage = () => {
                     height="315" 
                     src="https://www.youtube.com/embed/j2r2nDhTzO4?start=71&autoplay=1" 
                     title="YouTube video player" 
-                    frameborder="0" 
+                    frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
+                    allowFullScreen>
                 </iframe>
             </div>
 }

@@ -3,8 +3,12 @@ import { NurseryList } from "../nurseries/nurseryList.js"
 import { DistributorList } from "../distributors/distributorList.js"
 import { RetailerList } from "../retailers/retailerList.js"
 import { HomePage } from "../homepage/home.js"
+import { Cart } from "../cart/cart.js"
+import { useEffect, useState } from "react"
+import { getPurchases } from "../ApiManager.js"
 
 export const ApplicationViews = () => {
+
 	return (
         <Routes>
             <Route path="/" element={
@@ -25,11 +29,7 @@ export const ApplicationViews = () => {
                 <Route path="/nurseries" element={ <NurseryList /> } />
                 <Route path="/distributors" element={ <DistributorList /> } />
                 <Route path="/retailers" element={ <RetailerList /> } />
-                <Route path="/cart" element={ <> <div style={{
-                                                                "font-size": "30px", 
-                                                                "font-weight": "bold", 
-                                                                "margin-left": "20px"
-                                                            }}> CART GO HERE </div> </> } />
+                <Route path="/cart" element={ <Cart /> } />
 
             </Route>
         </Routes>

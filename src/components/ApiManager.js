@@ -33,18 +33,26 @@ export const getCustomers = () => {
     .then(response => response.json())
 }
 
-export const createPurchase = (customerId, retailerId, flowerId) => {
+export const createPurchase = (customerId, retailerId, flowerId, price) => {
     return fetch(`http://localhost:8088/purchases`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            customerId: customerId,
-            retailerId: retailerId,
-            flowerId: flowerId
+            customerId: +customerId,
+            retailerId: +retailerId,
+            flowerId: +flowerId,
+            quantity: 1,
+            price: +price
         })
 
     })
+    .then(response => response.json())
+    .then(window.location.href=window.location.href)
+}
+
+export const getPurchases = (id) => {
+    return fetch(`http://localhost:8088/purchases?customerId=${id}&_expand=flower&_expand=retailer&_expand=customer`)
     .then(response => response.json())
 }

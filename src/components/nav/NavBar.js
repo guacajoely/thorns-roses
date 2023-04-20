@@ -1,9 +1,26 @@
 import { Link, useNavigate } from "react-router-dom"
 import "./NavBar.css"
+import { useEffect, useState } from "react"
+import { getPurchases } from "../ApiManager.js"
 
 export const NavBar = () => {
 
     const navigate = useNavigate()
+
+    const [purchases, setPurchases] = useState([])
+
+    const localUser = localStorage.getItem("current_user")
+    const userObject = JSON.parse(localUser)
+
+    useEffect(() => {
+        getPurchases(userObject.id)
+        .then((responseArray) => {
+            setPurchases(responseArray)
+        })
+    }, 
+    [userObject.id] )
+
+    const cartCount=purchases.length
 
     return (
         <ul className="navbar">
@@ -21,7 +38,7 @@ export const NavBar = () => {
             </li>
 
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/cart">My Cart</Link>
+                <Link className="navbar__link" to="/cart">My Cart ({cartCount})</Link>
             </li>
 
 
